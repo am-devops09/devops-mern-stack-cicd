@@ -18,7 +18,7 @@ COPY --from=ui-build /usr/src/ui/build ./ui/build
 COPY --from=api-build /usr/src/api/dist .
 RUN ls
 
-ADD VERSION .
+# ADD VERSION .
 
 EXPOSE 80
 
