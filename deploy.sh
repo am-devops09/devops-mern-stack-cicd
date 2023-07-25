@@ -35,18 +35,19 @@ docker build -t $image_name:$newtag .
 echo "--------------------Pushing Docker Image--------------------"
 docker push $image_name:$newtag
 
-# # replace the tag in the kubernetes deployment file
-# echo "--------------------Update Img Tag Deployment--------------------"
-# awk -v search="$tag" -v replace="$newtag" '{gsub(search, replace)}1' "$deployfile" > tmpfile && mv tmpfile "$deployfile"
+# replace the tag in the kubernetes deployment file
+echo "--------------------Update Img Tag Deployment--------------------"
+awk -v search="$tag" -v replace="$newtag" '{gsub(search, replace)}1' "$deployfile" > tmpfile && mv tmpfile "$deployfile"
 
-# # replace the tag in the docker compose file
+# replace the tag in the docker compose file
 # echo "--------------------Update Img Tag Docker Compose--------------------"
 # awk -v search="$tag" -v replace="$newtag" '{gsub(search, replace)}1' "$composefile" > tmpfile && mv tmpfile "$composefile"
 
-# # create namespace
-# echo "--------------------creating Namespace--------------------"
-# kubectl create ns $namespace || true
+# create namespace
+echo "--------------------creating Namespace--------------------"
+kubectl create ns $namespace || true
 
-# # deploy app
-# echo "--------------------Deploy App--------------------"
-# kubectl apply -n $namespace -f k8s
+# deploy app
+echo "--------------------Deploy App--------------------"
+kubectl apply -n $namespace -f k8s
+# kubectl apply -f k8s

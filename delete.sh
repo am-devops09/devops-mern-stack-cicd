@@ -1,7 +1,7 @@
 #!/bin/bash
 
 namespace="mern-app"
-image_name="mveyone/mern-stack-build-prod"
+image_name="mveyone/mern-stack"
 
 # remove preious docker images
 echo "--------------------Remove Previous build--------------------"
