@@ -18,7 +18,7 @@ spec:
         app: webapp
     spec:
       containers:
-      - image: mveyone/mern-stack:17
+      - image: mveyone/mern-stack:16
         name: webapp
         imagePullPolicy: Always
         resources: {}
