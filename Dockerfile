@@ -18,6 +18,8 @@ COPY --from=ui-build /usr/src/ui/build ./ui/build
 COPY --from=api-build /usr/src/api/dist .
 RUN ls
 
+ADD VERSION .
+
 EXPOSE 80
 
 CMD ["node", "api.bundle.js"]
