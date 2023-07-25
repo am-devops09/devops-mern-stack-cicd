@@ -2,7 +2,7 @@ set -ex # SET THE FOLLOWING VARIABLES
 # docker hub username
 USERNAME=mveyone
 # image name
-IMAGE=mern-stack-prod-build # ensure we're up to date
+IMAGE=mern-stack # ensure we're up to date
 git pull
 #bump version
 docker run --rm -v "$PWD":/app treeder/bump patch
