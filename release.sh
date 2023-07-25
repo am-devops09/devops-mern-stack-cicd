@@ -1,14 +1,14 @@
-set -ex# SET THE FOLLOWING VARIABLES
+set -ex # SET THE FOLLOWING VARIABLES
 # docker hub username
 USERNAME=mveyone
 # image name
 IMAGE=mern-stack-prod-build # ensure we're up to date
 git pull
 #bump version
-docker run --rm -v "$PWD":/app mveyone/mern-stack-prod-build patch
+docker run --rm -v "$PWD":/app treeder/bump patch
 version=`cat VERSION`
 echo "version: $version"# run build
-./build.sh# tag it
+./build.sh # tag it
 git add -A
 git commit -m "version $version"
 git tag -a "$version" -m "version $version"
